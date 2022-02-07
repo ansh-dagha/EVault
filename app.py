@@ -52,6 +52,36 @@ def signin():
 
     return render_template('index.html')
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method=='POST':
+        username = request.form['username']
+        password = request.form['password']
+        emailid = request.form['email']
+        
+        try:
+            conn = get_db_connection()
+            salt = os.urandom(32)
+            plaintext = password.encode()
+
+            digest = hashlib.pbkdf2_hmac('sha256', plaintext, salt, 10000)
+
+            hashed_pwd = digest.hex()
+            print(hashed_pwd)
+            conn.execute("INSERT INTO users(username, hpassword, emailid, salt) VALUES(?,?,?,?)", (username, hashed_pwd, emailid, salt,))
+            conn.commit()
+            conn.close()
+            return render_template('index.html')
+            
+        except Exception as e:
+            print(str(e))
+            msg = "Sign Up Unsuccessful!"
+            return redirect('/')
+
+    return render_template('signup.html')
+
+# ansh123, ansh@gmail.com, anshu123
+
 #---------------------------------------- Main ----------------------------------------#
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
