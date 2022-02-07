@@ -2,7 +2,7 @@
 <h1 align="center">EVault</h1>
 
 <div align="center">
-<img align="center" src="static/css/logo.png" height="250px"> 
+<img align="center" src="static/images/logo.png" height="250px"> 
 </div>
 
 <br>
