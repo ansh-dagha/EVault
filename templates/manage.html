@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="./static/css/fontawesome.min.css" />
+    <script src="https://kit.fontawesome.com/555f71f953.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./static/css/layout.css">
+    <link rel="stylesheet" href="./static/css/manage.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <!---------------------------------------- Navbar ---------------------------------------->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid" style="padding: 0 !important;">
+
+            <a class="navbar-brand" href="#"><img class="logo" src="./static/images/Logo.png" alt=""> EVault
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" id="nav_contents">
+                    <li class="nav-item">
+                        <a class="nav-link login" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link signup" href="#">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!---------------------------------------- Banner ---------------------------------------->
+    <div class="banner">
+        <div class="row banner-text-row">
+            <table class="table passwords-table">
+                <thead class="table-header">
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Website</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Password</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>abc123<i class="far fa-eye-slash"></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>******<i class="far fa-eye"></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>******<i class="far fa-eye"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+
+</html>

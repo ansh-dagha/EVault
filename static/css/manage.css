@@ -18,3 +18,12 @@
 .passwords-table {
     background-color: rgba(255, 255, 255, 0.8);
 }
+
+.passwords-table th,
+.passwords-table td {
+    padding: 10px 15px;
+}
+
+.passwords-table i {
+    margin-left: 8px;
+}
