@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, session, redirect
+from flask import Flask, render_template, url_for, request, session, redirect, sessions
 import sqlite3
 import hashlib
 import os
@@ -43,6 +43,9 @@ def signin():
             print(hex_hash)
             if hex_hash == user['hpassword']:
                 print("Login successful")
+                session['logged_in'] = True
+                session['username'] = username
+                return render_template('manage.html')
             else:
                 print("Login failed")
         except Exception as e:
@@ -79,6 +82,12 @@ def signup():
             return redirect('/')
 
     return render_template('signup.html')
+
+@app.route('/logout')
+def logout():
+    session['logged_in'] = False
+    session['username'] = ""
+    return render_template('index.html')
 
 # ansh123, ansh@gmail.com, anshu123
 
