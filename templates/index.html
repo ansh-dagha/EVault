@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/fontawesome.min.css')}}" />
+    <script src="https://kit.fontawesome.com/555f71f953.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+
+
+    <title>Home</title>
+</head>
+
+<body>
+    <!---------------------------------------- Navbar ---------------------------------------->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid" style="padding: 0 !important;">
+
+            <a class="navbar-brand" href="#">EVault</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" id="nav_contents">
+                    <li class="nav-item">
+                        <a class="nav-link login" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link signup" href="#">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!---------------------------------------- Banner ---------------------------------------->
+    <div class="banner">
+        <div class="row banner-text-row">
+            <div class="col-md-5 col-lg-6 col-xl-7 banner-text-col">
+                <h2>Hey There,</h2>
+                <h2><span>Welcome Back</span></h2>
+            </div>
+            <div class="col-md-7 col-lg-6 col-xl-5 banner-text-col">
+                <div class="form-container">
+                    <h2>Log In</h2>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" placeholder="Password">
+                        </div>
+                        <a href="#">
+                            <p class="options" id="otp">Use OTP</p>
+                        </a>
+
+                        <button class="bluebutton continue" type="submit">Login</button>
+
+                        <a href="#">
+                            <p class="options" id="forgot-password">Forgot Password?</p>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+
+</html>
