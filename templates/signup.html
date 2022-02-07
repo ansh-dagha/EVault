@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
 
-
     <title>Home</title>
 </head>
 
@@ -54,29 +53,27 @@
             </div>
             <div class="col-md-7 col-lg-6 col-xl-5 banner-text-col">
                 <div class="form-container">
-                    <h2>Log In</h2>
-                    <form action="/signin" method="post">
+                    <h2>Sign Up</h2>
+                    <form action="">
                         <div class="form-group">
                             <input type="text" id="username" name="username" placeholder="Username">
                         </div>
                         <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
                             <input type="password" id="password" name="password" placeholder="Password">
                         </div>
-                        <a href="#">
-                            <p class="options" id="otp">Use OTP</p>
-                        </a>
 
-                        <button class="bluebutton continue" type="submit">Login</button>
+                        <input class="form-check-input" type="checkbox" id="terms" value="">
+                        <p class="terms-text">By signing up you accept our <a href="">Terms and Conditions</a></p>
 
-                        <a href="#">
-                            <p class="options" id="forgot-password">Forgot Password?</p>
-                        </a>
+                        <button class="bluebutton continue" type="submit">Sign In</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,12 +1,12 @@
 .banner {
-    background-image: url("../images/Background.jpg");
+    background-image: url("../images/Background_Manage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     height: 100vh;
     width: 100%;
     color: white;
-    padding: 0 60px;
+    padding: 0 70px;
 }
 
 .banner-text-row {
@@ -28,12 +28,12 @@
 }
 
 .form-container h2 {
-    color: #082351;
+    color: #000000;
     text-align: center;
     margin: 10px 0 30px;
 }
 
-.form-container input {
+.form-container .form-group input {
     width: 100%;
     padding: 0.6rem 0.75rem;
     border: none;
@@ -42,20 +42,27 @@
     border-radius: 8px;
 }
 
-.form-container input:focus {
-    outline: #082351 solid 1.5px;
+.form-container .form-group input:focus {
+    outline: #000000 solid 1.5px;
     background-color: white;
 }
 
 .options {
-    color: #082351;
+    color: #000000;
     text-decoration: underline;
     font-size: 14px;
     margin: 5px 0;
 }
 
 .options:hover {
-    color: #34b9ce;
+    color: #3d3e40;
+}
+
+.terms-text {
+    color: #000000;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0px 5px 10px;
 }
 
 .bluebutton:focus,
@@ -65,8 +72,8 @@
 
 .bluebutton {
     color: white;
-    border: #082351 solid 1px;
-    background-color: #082351;
+    border: #000000 solid 1px;
+    background-color: #000000;
     border-radius: 20px;
     font-size: 15px;
     padding: 0.5rem 2em;
@@ -74,8 +81,8 @@
 
 .bluebutton:hover {
     color: white;
-    border: #34b9ce solid 1px;
-    background-color: #34b9ce;
+    border: #3d3e40 solid 1px;
+    background-color: #3d3e40;
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     transition: all 0.2s ease 0s;
 }

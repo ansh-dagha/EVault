@@ -4,8 +4,7 @@ body {
 }
 
 .navbar {
-    padding: 1rem 90px;
-    /* background-color: #8183fc; */
+    padding: 1rem 80px;
     font-weight: 400;
 }
 
@@ -30,19 +29,36 @@ body {
     box-shadow: none !important;
 }
 
-.login {
+.navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-brand:hover {
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    transition: all 0.2s ease 0s;
+}
+
+.logo {
+    height: 45px;
+}
+
+.login,
+.signup {
     color: white;
+    font-size: 16px;
+    padding: 0.4rem 0.8em !important;
+    letter-spacing: 0.2px;
+}
+
+.login {
     border: #ffffff00 solid 1.5px;
-    font-size: 15px;
-    padding: 0.5rem 1em !important;
 }
 
 .signup {
-    color: white;
     border: #ffffff solid 1.5px;
     border-radius: 10px;
-    font-size: 15px;
-    padding: 0.5rem 1em !important;
 }
 
 .login:hover,

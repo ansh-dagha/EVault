@@ -1,0 +1,20 @@
+.banner {
+    background-image: url("../images/Background_Manage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    padding: 0 70px;
+}
+
+.banner-text-row {
+    width: 100%;
+    margin: 0;
+    padding-top: 150px;
+}
+
+.passwords-table {
+    background-color: rgba(255, 255, 255, 0.8);
+}
