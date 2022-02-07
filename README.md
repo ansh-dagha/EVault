@@ -1,4 +1,4 @@
-# EVault
+
 <h1 align="center">EVault</h1>
 
 <div align="center">
