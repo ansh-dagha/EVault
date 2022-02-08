@@ -89,6 +89,10 @@ def logout():
     session['username'] = ""
     return render_template('index.html')
 
+@app.route('/strengthchecker')
+def strengthchecker():
+    return render_template('strength-checker.html')
+
 # ansh123, ansh@gmail.com, anshu123
 
 #---------------------------------------- Main ----------------------------------------#

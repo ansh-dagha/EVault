@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Strength Checker</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/fontawesome.min.css')}}" />
+    <script src="https://kit.fontawesome.com/555f71f953.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+
+    <script type="text/javascript" src="{{url_for('static',filename='js/strength-checker.js')}}"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/strength-checker.css')}}">
+
+    <script>
+        $(document).ready(function($) {
+            $('#myPassword').strength_meter();
+        });
+    </script>
+
+</head>
+
+<body>
+    <!---------------------------------------- Navbar ---------------------------------------->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid" style="padding: 0 !important;">
+
+            <a class="navbar-brand" href="#"><img class="logo" src="{{url_for('static',filename='images/Logo.png')}}" alt=""> EVault</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" id="nav_contents">
+                    <li class="nav-item">
+                        <a class="nav-link login" href="/strengthchecker">Strength Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login" href="">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link signup" href="/signup">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!---------------------------------------- Banner ---------------------------------------->
+    <div class="banner">
+        <div class="container banner-container">
+            <h3>Password Strength Checker</h3>
+            <div id="myPassword"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+}
+
+.banner {
+    background-image: url("../images/Background_Checker.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    padding: 0 70px;
+    padding-top: 150px;
+}
+
+.banner-container {
+    background-color: rgba(255, 255, 255);
+    padding: 40px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.banner-container h3 {
+    margin: 5px 0 25px;
+    font-weight: 400;
+}
+
+.strength_wrapper {
+    display: inline-block;
+    width: 100%;
+}
+
+.strength_input {
+    background: transparent;
+    outline: #000000 solid 1.5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5rem 0.7em;
+    width: 100%;
+}
+
+.strength_meter {
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: -70px;
+}
+
+.button_strength {
+    text-decoration: none;
+    color: #4d4d4d;
+    font-size: 13px;
+    display: block;
+    margin-top: 10px;
+}
+
+.strength_meter div {
+    width: 0%;
+    height: 41px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    padding-top: 8px;
+    padding-right: 12px;
+}
+
+.strength_meter div p {
+    color: #4d4d4d;
+    font-size: 14px;
+    text-transform: capitalize;
+    position: absolute;
+    right: 38.2%;
+    margin-top: 2px;
+}
+
+.veryweak {
+    background-color: #FF7979;
+    width: 20% !important;
+}
+
+.weak {
+    background-color: #FDA068;
+    width: 40% !important;
+}
+
+.medium {
+    background-color: #FFE560;
+    width: 60% !important;
+}
+
+.strong {
+    background-color: #9BF47D;
+    width: 80% !important;
+}
+
+.verystrong {
+    background-color: #1cb330c4;
+    width: 100% !important;
+}
+
+
+/* Styles for verification */
+
+.pswd_info {
+    background: #fefefe;
+    font-size: 20px;
+    z-index: 1000;
+    display: block;
+    background-color: #ffffff;
+    margin-top: 55px;
+}
+
+.pswd_info h4 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1em;
+    font-size: 0.7em;
+}
+
+.pswd_info ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.pswd_info ul li {
+    visibility: visible !important;
+    height: 20px !important;
+    min-height: 20px !important;
+    line-height: 24px;
+    font-size: 0.7em;
+    padding-left: 24px !important;
+}
+
+.pswd_info .invalid {
+    background: url(../images/invalid.png) no-repeat 0 50%;
+    color: #ec3f41;
+}
+
+.pswd_info .valid {
+    background: url(../images/valid.png) no-repeat 0 50%;
+    color: #3a7d34;
+}
