@@ -157,3 +157,11 @@
         }
 
 })(jQuery, window, document);
+
+
+const toggle_btn = document.getElementById('toggle');
+const passwordtext = document.getElementById('passwordtext');
+toggle_btn.addEventListener("click",function(){
+    passwordtext.type = passwordtext.type == "password" ? "text":"password";
+    this.classList.toggle("<-slashed eye classname->");
+})
