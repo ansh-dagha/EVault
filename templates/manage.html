@@ -65,19 +65,19 @@
                         <th scope="row">1</th>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td>abc123<i class="far fa-eye-slash"></i></td>
+                        <td><input class="sober" type="password" disabled="true" value="abc123"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
-                        <td>******<i class="far fa-eye"></i></td>
+                        <td><input class="sober" type="password" disabled="true" value="xyz456"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Larry</td>
                         <td>the Bird</td>
-                        <td>******<i class="far fa-eye"></i></td>
+                        <td><input class="sober" type="password" disabled="true" value="lmn789"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
                     </tr>
                 </tbody>
             </table>
@@ -90,6 +90,15 @@
 
     <!-- Bootstrap -->
     <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+
+    <script>
+        let toggle_visibility = function(){
+            passwordtext = this.parentElement.querySelector('input');
+            passwordtext.type = passwordtext.type == "password" ? "text":"password";
+            this.classList.toggle("fa-eye-slash");
+        }
+    </script>
+
 </body>
 
 </html>

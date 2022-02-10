@@ -27,3 +27,19 @@
 .passwords-table i {
     margin-left: 8px;
 }
+
+.sober{
+    outline:none;
+    width:inherit;
+    height:inherit;
+    border:none;
+    background-color: inherit;
+}
+
+.visibility-eye{
+    cursor: pointer;
+}
+
+.fa-eye, .fa-eye-slash{
+    cursor: pointer;
+}
