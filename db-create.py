@@ -10,6 +10,12 @@ username TEXT PRIMARY KEY , hpassword TEXT, emailid TEXT, salt TEXT
 )
 """)
 
+c.execute(""" CREATE TABLE passwords
+(
+username TEXT , website TEXT, webusername TEXT, link TEXT, password TEXT, 
+)
+""")
+
 #c.execute(""" DROP TABLE users """)
 
 conn.commit()

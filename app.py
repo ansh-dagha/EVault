@@ -21,7 +21,7 @@ def add_header(r):
 
 @app.route('/', methods=['GET', 'POST'])
 def basic():
-    return render_template('index.html')
+    return render_template('manage.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -92,6 +92,18 @@ def logout():
 @app.route('/strengthchecker')
 def strengthchecker():
     return render_template('strength-checker.html')
+
+@app.route('/addnew')
+def addnew():
+    if request.method=='POST':
+        website_name = request.form['website']
+        link = request.form['link']
+        password = request.form['password']
+        username = request.form['username']
+
+    
+    
+    return render_template('addnew.html')
 
 # ansh123, ansh@gmail.com, anshu123
 

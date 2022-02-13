@@ -50,6 +50,7 @@
     <!---------------------------------------- Banner ---------------------------------------->
     <div class="banner">
         <div class="row banner-text-row">
+            <a class="btn btn-light" href="/addnew">Add</a>
             <table class="table passwords-table">
                 <thead class="table-header">
                     <tr>
@@ -93,6 +94,7 @@
 
     <script>
         let toggle_visibility = function(){
+            
             passwordtext = this.parentElement.querySelector('input');
             passwordtext.type = passwordtext.type == "password" ? "text":"password";
             this.classList.toggle("fa-eye-slash");
