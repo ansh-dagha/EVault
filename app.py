@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, request, session, redirect, s
 import sqlite3
 import hashlib
 import os
-from Utilities.encryption import encrypt, decrypt
-from Utilities.password import isValid
+from utilities.encryption import encrypt, decrypt
+from utilities.password import isValid, generatePass
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -102,6 +102,10 @@ def logout():
 @app.route('/strengthchecker')
 def strengthchecker():
     return render_template('strength-checker.html')
+
+@app.route('/generatepassword', methods=['GET', 'POST'])
+def generatepassword():
+    return generatePass()
 
 @app.route('/addnew', methods=['GET', 'POST'])
 def addnew():
