@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid" style="padding: 0 !important;">
 
-            <a class="navbar-brand" href="#"><img class="logo" src="{{url_for('static',filename='images/Logo.png')}}" alt=""> EVault</a>
+            <a class="navbar-brand" href="/"><img class="logo" src="{{url_for('static',filename='images/Logo.png')}}" alt=""> EVault</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: white;"></i>
@@ -34,13 +34,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto" id="nav_contents">
                     <li class="nav-item">
+                        <a class="nav-link login" href="/">Manage Passwords</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link login" href="/strengthchecker">Strength Checker</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link login" href="">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link signup" href="/signup">Sign Up</a>
+                        <a class="nav-link login" href="/logout">Sign Out</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,10 @@
     <!---------------------------------------- Banner ---------------------------------------->
     <div class="banner">
         <div class="row banner-text-row">
-            <a class="btn btn-light" href="/addnew">Add</a>
+            <div class="add-new-div">
+                <a type="button" class="add-new-btn btn btn-outline-light" href="/addnew">Add <i class="fas fa-plus"></i></a>
+            </div>
+
             <table class="table passwords-table">
                 <thead class="table-header">
                     <tr>
@@ -62,24 +65,17 @@
                 </thead>
 
                 <tbody>
+                    {% for entry in entries %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><input class="sober" type="password" disabled="true" value="abc123"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
+                        <th scope="row">{{loop.index}}</th>
+                        <td><a href="{{entry[3]}}" id="website_name" target="_blank">{{entry[1]}}</a></td>
+                        <td id="web_username">{{entry[2]}}</td>
+                        <td><input class="sober" type="password" disabled="true" value="{{entry[4]}}"></input>
+                            <i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i>
+                            <i class="fas fa-trash-alt i-delete" style="cursor:pointer;" onclick="delete_entry.call(this)"></i>
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td><input class="sober" type="password" disabled="true" value="xyz456"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td><input class="sober" type="password" disabled="true" value="lmn789"></input><i onclick="toggle_visibility.call(this)" class="far fa-eye fa-eye-slash"></i></td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
@@ -93,11 +89,26 @@
     <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
 
     <script>
-        let toggle_visibility = function(){
-            
+        let toggle_visibility = function() {
             passwordtext = this.parentElement.querySelector('input');
-            passwordtext.type = passwordtext.type == "password" ? "text":"password";
+            passwordtext.type = passwordtext.type == "password" ? "text" : "password";
             this.classList.toggle("fa-eye-slash");
+        }
+
+        let delete_entry = function() {
+            if (confirm("Are you sure, you want to delete?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/delete_entry",
+                    data: {
+                        website_name: this.parentElement.parentElement.querySelector("#website_name").innerHTML,
+                        web_username: this.parentElement.parentElement.querySelector("#web_username").innerHTML,
+                    },
+                    success: function(_) {
+                        window.location.reload();
+                    }
+                });
+            }
         }
     </script>
 

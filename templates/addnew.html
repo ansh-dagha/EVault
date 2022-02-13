@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid" style="padding: 0 !important;">
 
-            <a class="navbar-brand" href="#"><img class="logo" src="{{url_for('static',filename='images/Logo.png')}}" alt=""> EVault</a>
+            <a class="navbar-brand" href="/"><img class="logo" src="{{url_for('static',filename='images/Logo.png')}}" alt=""> EVault</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: white;"></i>
@@ -34,13 +34,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto" id="nav_contents">
                     <li class="nav-item">
+                        <a class="nav-link login" href="/">Manage Passwords</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link login" href="/strengthchecker">Strength Checker</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link login" href="">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link signup" href="/signup">Sign Up</a>
+                        <a class="nav-link login" href="/logout">Sign Out</a>
                     </li>
                 </ul>
             </div>
@@ -49,22 +49,22 @@
 
     <!---------------------------------------- Banner ---------------------------------------->
     <div class="banner">
-        <div class="row banner-text-row">
+        <div class="row banner-text-row justify-content-center">
             <div class="col-md-7 col-lg-6 col-xl-5 banner-text-col">
                 <div class="form-container">
                     <h2>Add Password</h2>
-                    <form action="">
+                    <form action="" method="post">
                         <div class="form-group">
-                            <input type="text" id="website" name="website" placeholder="Website">
+                            <input type="text" id="website" name="website" placeholder="Website Name">
                         </div>
                         <div class="form-group">
-                            <input type="url" id="link" name="link" placeholder="Link">
+                            <input type="text" id="link" name="link" placeholder="Website Link">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="username" name="username" placeholder="Username">
+                            <input type="text" id="username" name="username" placeholder="Website Username">
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" name="password" placeholder="Password">
+                            <input type="password" id="password" name="password" placeholder="Website Password">
                         </div>
 
                         <button class="bluebutton continue" type="submit">Add</button>

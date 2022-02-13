@@ -15,6 +15,25 @@
     padding-top: 150px;
 }
 
+.add-new-div {
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.add-new-btn {
+    float: right;
+}
+
+.add-new-btn i {
+    font-size: 15px;
+    margin-left: 2px;
+}
+
+.i-delete {
+    float: right;
+    margin-top: 5px;
+}
+
 .passwords-table {
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -28,18 +47,19 @@
     margin-left: 8px;
 }
 
-.sober{
-    outline:none;
-    width:inherit;
-    height:inherit;
-    border:none;
+.sober {
+    outline: none;
+    width: inherit;
+    height: inherit;
+    border: none;
     background-color: inherit;
 }
 
-.visibility-eye{
+.visibility-eye {
     cursor: pointer;
 }
 
-.fa-eye, .fa-eye-slash{
+.fa-eye,
+.fa-eye-slash {
     cursor: pointer;
 }

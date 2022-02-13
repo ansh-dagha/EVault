@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for, request, session, redirect, s
 import sqlite3
 import hashlib
 import os
+from Utilities.encryption import encrypt, decrypt
+from Utilities.password import isValid
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -21,7 +23,16 @@ def add_header(r):
 
 @app.route('/', methods=['GET', 'POST'])
 def basic():
-    return render_template('manage.html')
+    if session:
+        conn = get_db_connection()
+        data = conn.execute("select * from passwords where username=? ",(session['username'],)).fetchall()
+        for i in range(len(data)):
+            data[i] = list(data[i])
+            data[i][4] = decrypt(data[i][4])
+        conn.close()
+        return render_template('manage.html', entries=data)
+    else:
+        return render_template('index.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -63,14 +74,14 @@ def signup():
         emailid = request.form['email']
         
         try:
+            flag, err = isValid(password)
+            if not flag:
+                return render_template('signup.html', alert_message=err)
             conn = get_db_connection()
             salt = os.urandom(32)
             plaintext = password.encode()
-
             digest = hashlib.pbkdf2_hmac('sha256', plaintext, salt, 10000)
-
             hashed_pwd = digest.hex()
-            print(hashed_pwd)
             conn.execute("INSERT INTO users(username, hpassword, emailid, salt) VALUES(?,?,?,?)", (username, hashed_pwd, emailid, salt,))
             conn.commit()
             conn.close()
@@ -85,24 +96,47 @@ def signup():
 
 @app.route('/logout')
 def logout():
-    session['logged_in'] = False
-    session['username'] = ""
+    session.clear()
     return render_template('index.html')
 
 @app.route('/strengthchecker')
 def strengthchecker():
     return render_template('strength-checker.html')
 
-@app.route('/addnew')
+@app.route('/addnew', methods=['GET', 'POST'])
 def addnew():
     if request.method=='POST':
-        website_name = request.form['website']
+        website = request.form['website']
         link = request.form['link']
-        password = request.form['password']
         username = request.form['username']
+        password = request.form['password']
 
-    
-    
+        try:
+            password = encrypt(password)
+            conn = get_db_connection()
+            conn.execute(" INSERT INTO passwords(username, website, webusername, link, password) VALUES(?,?,?,?,?)",  (session['username'], website,username, link, password,))
+            conn.commit()
+            conn.close()
+            return redirect("/")
+        except:
+            pass
+
+    return render_template('addnew.html')
+
+@app.route('/delete_entry', methods=['GET', 'POST'])
+def delete_entry():
+    if request.method=='POST':
+        web_username = request.form['web_username']
+        website_name = request.form['website_name']
+
+        try:
+            conn = get_db_connection()
+            conn.execute("DELETE FROM passwords WHERE webusername=? and website = ?",(web_username,website_name,))
+            conn.commit()
+            conn.close()
+        except:
+            pass
+
     return render_template('addnew.html')
 
 # ansh123, ansh@gmail.com, anshu123
