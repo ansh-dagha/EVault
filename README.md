@@ -36,9 +36,11 @@
 
 * Sign-Up/Login for various users
 
-* Store passwords corresponding to different websites​
+* Store passwords corresponding to different websites
 
-* Check the strength of a password    ​
+* Check the strength of a password
+
+* Generate password
 
 
 <br>
