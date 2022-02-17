@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <input type="password" id="password" name="password" placeholder="Website Password">
                         </div>
-                        <button class="btn btn-success" onclick="passgen()" type="button">Generate Password</button>
+                        <button class="btn btn-success generatepassword" onclick="passgen()" type="button">Generate Password</button>
                         <button class="bluebutton continue" type="submit">Add</button>
                     </form>
                 </div>
@@ -81,7 +81,7 @@
     <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
 
     <script>
-        function passgen(){
+        function passgen() {
             $.ajax({
                 type: "POST",
                 url: "/generatepassword",
